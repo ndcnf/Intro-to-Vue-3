@@ -15,10 +15,12 @@
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
-            <!-- image goes here -->
+            <!-- <img v-bind:src="image"> without shorthand-->
+            <img :src="image"><!-- with shorthand -->
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
+            <a :href="url">A nice link</a>
           </div>
         </div>
       </div>
