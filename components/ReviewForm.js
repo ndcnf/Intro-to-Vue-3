@@ -18,18 +18,25 @@ app.component('review-form', {
 		<option>1</option>
 		</select>
 
+		<label for="recommendation">Would you recommend this product?</label>
+		<select id="recommendation" v-model="recommendation">
+		<option>Yes</option>
+		<option>No</option>
+		</select>
+
 		<input class="button" type="submit" value="Submit">
 	</form>`,
 	data() {
 		return {
 		name: '',
 		review: '',
-		rating: null
+		rating: null,
+		recommendation: ''
 		}
 	},
 	methods: {
 		onSubmit() {
-			if (this.name === '' || this.review === '' || this.rating === null) {
+			if (this.name === '' || this.review === '' || this.rating === null || this.recommendation === '') {
 				alert('Review is incomplete. Please fill out every field.')
 				return
 			}
@@ -37,13 +44,15 @@ app.component('review-form', {
 			let productReview = {
 				name: this.name,
 				review: this.review,
-				rating: this.rating
+				rating: this.rating,
+				recommendation: this.recommendation
 			}
 			this.$emit('review-submitted', productReview)
 
 			this.name = ''
 			this.review = ''
 			this.rating = null
+			this.recommendation = ''
 		}
 	}
 })
