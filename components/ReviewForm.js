@@ -31,12 +31,12 @@ app.component('review-form', {
 		name: '',
 		review: '',
 		rating: null,
-		recommendation: ''
+		recommendation: null
 		}
 	},
 	methods: {
 		onSubmit() {
-			if (this.name === '' || this.review === '' || this.rating === null || this.recommendation === '') {
+			if (this.name === '' || this.review === '' || this.rating === null || this.recommendation === null) {
 				alert('Review is incomplete. Please fill out every field.')
 				return
 			}
@@ -52,7 +52,7 @@ app.component('review-form', {
 			this.name = ''
 			this.review = ''
 			this.rating = null
-			this.recommendation = ''
+			this.recommendation = null
 		}
 	}
 })
